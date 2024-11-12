@@ -51,6 +51,8 @@ const moviesSlice = createSlice({
       resetMovies(state) {
          state.movies = [] // movies state 초기화
       },
+      //createSlice는 reducers안에 함수를 만들면 함수 이름으로 액션을 자동생성. 
+      //-> reducers 내부의 resetMovies 함수 =>resetMovies라는 이름의 액션 
    },
    extraReducers: (builder) => {
       /*
