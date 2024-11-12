@@ -15,8 +15,7 @@ const tmdbApi = axios.create({
 
 // 공통 API 호출 함수
 const fetchFromApi = async (url, params = {}) => {
-   /* ? */
-   // 하나가 아니라 여러개 받을거니까 params에 빈객체로 설정?????????
+
    try {
       const response = await tmdbApi.get(url, { params })
       return response
@@ -25,17 +24,26 @@ const fetchFromApi = async (url, params = {}) => {
       throw error
    }
 }
+//params 빈객체 이유
+//기본값 설정: fetchFromApi 함수를 호출할 때 params를 명시하지 않아도 오류 없이 함수가 작동함. 
+//다중 쿼리 파라미터 지원: params는 여러 개의 쿼리 파라미터를 받아 TMDB API에 전달할 수 있는 구조
+//재사용성: params를 통해 필터, 정렬, 페이지 번호 등의 여러 요청 매개변수를 한꺼번에 담아 API 요청을 유연하게 보낼 수 있어 재사용성에 좋습니다.
+
+/* ? */
+//catch에서 throw(예외를 명시적으로 발생) 설정 이유
+//오류 처리를 함수 밖에서 할 수 있도록 하기 위해서
 
 // 인기, 상영중, 개봉 예정 영화 가져오기
 export const getMovies = (category = 'popular', page = 1) => {
    // category 따라 엔드포인트 동적으로 설정
-   //App.js에서 category props 줬었음. 그거랑 연관 있음
+   //App.js에서 category props 줬었음. 그거랑 이 함수랑 연관있음
+   //매개변수명으로 연결 X  endpoint로 연결
    const endpoint = {
       popular: '/movie/popular',
       now_playing: '/movie/now_playing',
       upcoming: '/movie/upcoming',
    }[category]
-   // 기본값을 'popular'로 설정 (그냥 카테고리 버튼 누르면 들어가는 창인듯?)
+   // 기본값을 'popular'로 설정 (그냥 카테고리 버튼 누르면 popular로 들어간다는 뜻인듯?)
    //[category]=['popular']=json객체 읽는법중 하나에 있었음
 
    return fetchFromApi(endpoint, {
