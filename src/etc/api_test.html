@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+   <body>
+      <script>
+         //현재 날씨
+         const url1 = 'https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=f98e648c60dee9415bd3b65e176b86ca'
+
+         //5일치 날씨
+         const url2 = 'https://api.openweathermap.org/data/2.5/forecast?q=seoul&appid=f98e648c60dee9415bd3b65e176b86ca'
+
+         const getWeather = async () => {
+            try {
+               const response = await fetch(url2)
+               const data = await response.json()
+               console.log(data)
+            } catch (error) {
+               console.log('에러 발생: ', error)
+            }
+         }
+
+         getWeather()
+      </script>
+   </body>
+</html>

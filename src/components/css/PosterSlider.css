@@ -1,0 +1,30 @@
+.swiper {
+   width: 100%;
+   height: 300px;
+   /* 스와이퍼 샘플코드에는 %로 되어있는데(?) 300px으로 고정시켜줌 */
+   background-color: #fff;
+   margin: 20px 0;
+}
+
+.swiper-slide {
+   text-align: center;
+   font-size: 18px;
+   background: #fff;
+
+   /* Center slide text vertically */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.swiper-slide img {
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+   color: white; /* 원하는 화살표 색상으로 변경 */
+}
