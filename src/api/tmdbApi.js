@@ -74,11 +74,8 @@ export const getTVs = (type, page = 1) => {
       popular: '/tv/popular',
       nowPlaying: '/tv/on_the_air',
    }[type]
-   /* ? */
-   //여기 type은 뭐지???  어디서 온거지??
-   //변수명 디폴트가 타입인건가? 무비에서는 따로 설정한거고?
-   //아닌데 어디서 온건지 모르겠는데 tmdb 설정인가?
-   //쨋든 타입으로 popular,nowPlaying 둘중 하나 고르는듯 (?)
+// [type]이 포인트. popular이 type 매개변수에 들어갈 시 , 결과 popular: '/tv/popular'. popular번째 객체니까.
+   
    return fetchFromApi(endpoint, {
       language: 'ko-KR',
       page,
