@@ -91,6 +91,11 @@ const moviesSlice = createSlice({
                   }
                })
                */
+               
+               /* 
+               reducers 슬라이스 내부에서 정의된 액션을 처리하기 위해 사용
+               extraReducers 슬라이스 외부에서 정의된 액션, 특히 비동기 작업 상태를 처리하기 위해 사용
+               */
             }
          })
          .addCase(fetchMovies.rejected, (state, action) => {
