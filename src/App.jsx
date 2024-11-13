@@ -33,3 +33,4 @@ export default App
 
 /* ? */
 /* Route에도 props를 줄 수 있었나??? props????? */
+//props 이름 (element, category ) 내 마음대로 설정할 수 있는건지?

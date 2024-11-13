@@ -26,6 +26,7 @@ function SearchResults() {
    }, [query, dispatch])
 
    // 페이지가 변경될 때마다 새로운 결과 로딩
+
    useEffect(() => {
       if (page > 1) {
          dispatch(fetchSearchResults({ query, page }))

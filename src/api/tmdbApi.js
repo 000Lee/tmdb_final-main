@@ -15,7 +15,6 @@ const tmdbApi = axios.create({
 
 // 공통 API 호출 함수
 const fetchFromApi = async (url, params = {}) => {
-
    try {
       const response = await tmdbApi.get(url, { params })
       return response
@@ -24,8 +23,10 @@ const fetchFromApi = async (url, params = {}) => {
       throw error
    }
 }
+//함수 호출 시 인자의 위치를 통해 첫 번째 매개변수가 url (또는 엔드포인트)이고, 두 번째 매개변수가 params (또는 쿼리 파라미터 객체)라는 점을 JavaScript가 인식합니다.
+
 //params 빈객체 이유
-//기본값 설정: fetchFromApi 함수를 호출할 때 params를 명시하지 않아도 오류 없이 함수가 작동함. 
+//기본값 설정: fetchFromApi 함수를 호출할 때 params를 명시하지 않아도 오류 없이 함수가 작동함.
 //다중 쿼리 파라미터 지원: params는 여러 개의 쿼리 파라미터를 받아 TMDB API에 전달할 수 있는 구조
 //재사용성: params를 통해 필터, 정렬, 페이지 번호 등의 여러 요청 매개변수를 한꺼번에 담아 API 요청을 유연하게 보낼 수 있어 재사용성에 좋습니다.
 
@@ -74,8 +75,8 @@ export const getTVs = (type, page = 1) => {
       popular: '/tv/popular',
       nowPlaying: '/tv/on_the_air',
    }[type]
-// [type]이 포인트. popular이 type 매개변수에 들어갈 시 , 결과 popular: '/tv/popular'. popular번째 객체니까.
-   
+   // [type]이 포인트. popular이 type 매개변수에 들어갈 시 , 결과 popular: '/tv/popular'. popular번째 객체니까.
+
    return fetchFromApi(endpoint, {
       language: 'ko-KR',
       page,

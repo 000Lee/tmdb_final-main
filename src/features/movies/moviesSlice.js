@@ -51,8 +51,8 @@ const moviesSlice = createSlice({
       resetMovies(state) {
          state.movies = [] // movies state 초기화
       },
-      //createSlice는 reducers안에 함수를 만들면 함수 이름으로 액션을 자동생성. 
-      //-> reducers 내부의 resetMovies 함수 =>resetMovies라는 이름의 액션 
+      //createSlice는 reducers안에 함수를 만들면 함수 이름으로 액션을 자동생성.
+      //-> reducers 내부의 resetMovies 함수 =>resetMovies라는 이름의 액션
    },
    extraReducers: (builder) => {
       /*
@@ -138,6 +138,8 @@ const moviesSlice = createSlice({
                state.searchResults = [...state.searchResults, ...action.payload]
                // action.payload.forEach((movie) => state.searchResults.push(movie))
             }
+            /* ? */
+            //검색인데 무슨 페이지..?
          })
          .addCase(fetchSearchResults.rejected, (state, action) => {
             state.loading = false
